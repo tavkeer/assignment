@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //image section
-                const ImageSection(),
+                const ImageSection(text: 'Login'),
 
                 //form Section
                 const SizedBox(height: 10),
@@ -55,7 +55,13 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 //signup navigation
-                const DontHaveAnAccount(),
+                ToggleLoginAndRegister(
+                  titleText: "Don't have an account? ",
+                  actionText: 'Sign Up',
+                  ontap: () => Get.off(
+                    () => const SignUpPage(),
+                  ),
+                ),
               ],
             ),
           ),

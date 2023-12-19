@@ -1,12 +1,12 @@
 import 'package:tavkeer_assignment/exports.dart';
 
-class PasswordVisibilityWidget extends StatelessWidget {
+class PasswordsVisibilityWidget extends StatelessWidget {
   final void Function()? ontap;
-  const PasswordVisibilityWidget({super.key, this.ontap});
+  const PasswordsVisibilityWidget({super.key, this.ontap});
 
   @override
   Widget build(BuildContext context) {
-    return (Get.find<LoginController>().passwordLoading.value)
+    return (Get.find<SignUpController>().passwordLoading.value)
         ? IconButton(
             icon: Icon(
               Icons.visibility_off,
@@ -28,6 +28,6 @@ class PasswordVisibilityWidget extends StatelessWidget {
   }
 
   void passwordVisible(bool value) {
-    Get.find<LoginController>().toggPasswordloading(value);
+    Get.find<SignUpController>().toggPasswordloading(value);
   }
 }

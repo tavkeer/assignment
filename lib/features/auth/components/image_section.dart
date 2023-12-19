@@ -1,8 +1,10 @@
 import 'package:tavkeer_assignment/exports.dart';
 
 class ImageSection extends StatelessWidget {
+  final String text;
   const ImageSection({
     super.key,
+    required this.text,
   });
 
   @override
@@ -18,7 +20,7 @@ class ImageSection extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: Text(
-            'Login',
+            text,
             style: TextStyle(
               color: appThemeColor,
               fontSize: 32,

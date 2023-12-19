@@ -1,4 +1,3 @@
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tavkeer_assignment/exports.dart';
 
 class MyApp extends StatelessWidget {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData) {
               return const HomePage();
             } else {
-              return const LoginPage();
+              return const SignUpPage();
             }
           }
         },

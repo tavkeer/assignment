@@ -7,6 +7,7 @@ class TextInputWidget extends StatelessWidget {
   final Widget? trailingWidget;
   final TextInputType? keyboard;
   final bool? hidePass;
+  final bool? required;
   const TextInputWidget(
       {super.key,
       required this.title,
@@ -14,7 +15,8 @@ class TextInputWidget extends StatelessWidget {
       required this.textController,
       this.trailingWidget,
       this.keyboard,
-      this.hidePass});
+      this.hidePass,
+      this.required});
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +25,30 @@ class TextInputWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 5),
-          child: Text(
-            title,
-            style: const TextStyle(
-              color: Color(0xFF121212),
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            ),
+          child: Row(
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Color(0xFF121212),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              if (required ?? false)
+                const Text(
+                  ' *',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
         ),
         const SizedBox(height: 8),
-        TextField(
+        TextFormField(
           controller: textController,
           keyboardType: keyboard,
           obscureText: hidePass ?? false,
@@ -59,7 +74,7 @@ class TextInputWidget extends StatelessWidget {
               ),
             ),
             hintStyle: const TextStyle(
-              color: Colors.black,
+              color: Color(0xFF8F8F8F),
               fontSize: 12,
               fontWeight: FontWeight.w500,
             ),

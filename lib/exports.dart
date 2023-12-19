@@ -20,3 +20,7 @@ export 'package:tavkeer_assignment/widgets/custom_button.dart';
 export 'package:tavkeer_assignment/features/auth/components/forgot_pass.dart';
 export 'package:tavkeer_assignment/features/auth/utils/privacy_policy.dart';
 export 'package:tavkeer_assignment/features/auth/components/donhave_account.dart';
+export 'package:google_fonts/google_fonts.dart';
+export 'package:tavkeer_assignment/features/auth/signup.dart';
+export 'package:tavkeer_assignment/features/auth/controllers/signup_controller.dart';
+export 'package:tavkeer_assignment/features/auth/components/signup_form.dart';
