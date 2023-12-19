@@ -11,10 +11,9 @@ class LoginPage extends StatelessWidget {
     //password
     final TextEditingController password = TextEditingController();
 
-    //controller initialize
-    Get.put(LoginController());
     //body
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -28,10 +27,7 @@ class LoginPage extends StatelessWidget {
 
                 //form Section
                 const SizedBox(height: 10),
-                LoginForm(
-                  email: email,
-                  password: password,
-                ),
+                LoginForm(email: email, password: password),
 
                 //forgot and remember me section
                 const ForgotPassword(),
@@ -48,19 +44,14 @@ class LoginPage extends StatelessWidget {
 
                 //divider
                 const SizedBox(height: 10),
-                const Divider(
-                  thickness: 1,
-                  color: Color(0xFFD9D9D9),
-                ),
+                const Divider(thickness: 1, color: Color(0xFFD9D9D9)),
                 const SizedBox(height: 10),
 
                 //signup navigation
                 ToggleLoginAndRegister(
                   titleText: "Don't have an account? ",
                   actionText: 'Sign Up',
-                  ontap: () => Get.off(
-                    () => const SignUpPage(),
-                  ),
+                  ontap: () => Get.off(() => const SignUpPage()),
                 ),
               ],
             ),

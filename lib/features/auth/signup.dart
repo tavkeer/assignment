@@ -1,4 +1,5 @@
 import 'package:tavkeer_assignment/exports.dart';
+import 'package:tavkeer_assignment/features/auth/opt_screen.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -18,12 +19,9 @@ class SignUpPage extends StatelessWidget {
     final TextEditingController fullName = TextEditingController();
     final TextEditingController password = TextEditingController();
 
-    //controller initialize
-    Get.put(LoginController());
-    Get.put(SignUpController());
-
     //body
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -59,24 +57,19 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 15),
                 CustomButton(
                   title: 'Register',
-                  ontap: () {},
+                  ontap: () => Get.to(() => OtpPage(email: email)),
                 ),
 
                 //divider
                 const SizedBox(height: 10),
-                const Divider(
-                  thickness: 1,
-                  color: Color(0xFFD9D9D9),
-                ),
+                const Divider(thickness: 1, color: Color(0xFFD9D9D9)),
                 const SizedBox(height: 10),
 
                 //signup navigation
                 ToggleLoginAndRegister(
                   titleText: 'Already have an account? ',
                   actionText: 'Login',
-                  ontap: () => Get.off(
-                    () => const LoginPage(),
-                  ),
+                  ontap: () => Get.off(() => const LoginPage()),
                 ),
                 const SizedBox(height: 20),
               ],

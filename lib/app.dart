@@ -1,3 +1,4 @@
+import 'package:tavkeer_assignment/binding/bindings.dart';
 import 'package:tavkeer_assignment/exports.dart';
 
 class MyApp extends StatelessWidget {
@@ -6,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: InitialBindings(),
       debugShowCheckedModeBanner: false,
 
       //common font for whole app
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData) {
               return const HomePage();
             } else {
-              return const SignUpPage();
+              return const LoginPage();
             }
           }
         },

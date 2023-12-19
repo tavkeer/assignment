@@ -2,6 +2,7 @@ import 'package:tavkeer_assignment/exports.dart';
 
 class ImageSection extends StatelessWidget {
   final String text;
+
   const ImageSection({
     super.key,
     required this.text,

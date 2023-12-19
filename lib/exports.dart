@@ -24,3 +24,5 @@ export 'package:google_fonts/google_fonts.dart';
 export 'package:tavkeer_assignment/features/auth/signup.dart';
 export 'package:tavkeer_assignment/features/auth/controllers/signup_controller.dart';
 export 'package:tavkeer_assignment/features/auth/components/signup_form.dart';
+export 'package:tavkeer_assignment/features/auth/controllers/opt_controller.dart';
+export 'package:tavkeer_assignment/features/auth/utils/enter_opt.dart';
