@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "697319021536",
+    "project_id": "assginment-3fb27",
+    "storage_bucket": "assginment-3fb27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697319021536:android:64868b59a62ebecacaa985",
+        "android_client_info": {
+          "package_name": "com.example.tavkeer_assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlG_AYqtOqyg32Bt-zZrSd1uga4x8xmME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
