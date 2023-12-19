@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:tavkeer_assignment/widgets/textinput_widget.dart';
+import 'package:tavkeer_assignment/exports.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -12,45 +11,56 @@ class LoginPage extends StatelessWidget {
     //password
     final TextEditingController password = TextEditingController();
 
+    //controller initialize
+    Get.put(LoginController());
     //body
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              //image section
-              Image.asset(
-                'assets/images/auth.png',
-                fit: BoxFit.contain,
-              ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //image section
+                const ImageSection(),
 
-              //form Section
-              const LoginForm(),
+                //form Section
+                const SizedBox(height: 10),
+                LoginForm(
+                  email: email,
+                  password: password,
+                ),
 
-              //forgot and remember me section
+                //forgot and remember me section
+                const ForgotPassword(),
 
-              //login button
+                //privacy policy section
+                const PrivacyPolicy(),
 
-              //signup navigation
-            ],
+                //login button
+                const SizedBox(height: 15),
+                CustomButton(
+                  title: 'Login',
+                  ontap: () {},
+                ),
+
+                //divider
+                const SizedBox(height: 10),
+                const Divider(
+                  thickness: 1,
+                  color: Color(0xFFD9D9D9),
+                ),
+                const SizedBox(height: 10),
+
+                //signup navigation
+                const DontHaveAnAccount(),
+              ],
+            ),
           ),
         ),
       ),
-    );
-  }
-}
-
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextInputWidget(
-      title: 'E-mail Address',
-      hint: 'Enter E-mail Address',
-      textController: TextEditingController(),
     );
   }
 }

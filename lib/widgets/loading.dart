@@ -1,5 +1,4 @@
 import 'package:tavkeer_assignment/exports.dart';
-import 'package:tavkeer_assignment/constants.dart';
 
 class Loading extends StatelessWidget {
   const Loading({super.key});

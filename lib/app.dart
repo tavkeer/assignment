@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tavkeer_assignment/exports.dart';
 
 class MyApp extends StatelessWidget {
@@ -7,6 +8,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+
+      //common font for whole app
+      theme: ThemeData(textTheme: GoogleFonts.nunitoTextTheme()),
+
+      //checking if the user is logged in or not
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
