@@ -3,7 +3,13 @@ import 'package:tavkeer_assignment/exports.dart';
 class CustomButton extends StatelessWidget {
   final String title;
   final void Function()? ontap;
-  const CustomButton({super.key, required this.title, this.ontap});
+  final dynamic controller;
+  const CustomButton({
+    super.key,
+    required this.title,
+    this.ontap,
+    this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +25,18 @@ class CustomButton extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 7),
-          child: Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: GoogleFonts.inter().fontFamily,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
+          child: Obx(
+            () => (controller.value)
+                ? const Loading()
+                : Text(
+                    title,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: GoogleFonts.inter().fontFamily,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
           ),
         ),
       ),

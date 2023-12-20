@@ -1,4 +1,4 @@
-class User {
+class UserModel {
   String? fullName;
   String? dob;
   String? gender;
@@ -9,7 +9,8 @@ class User {
   String? city;
   String? state;
   String? pinCode;
-  User({
+  String? password;
+  UserModel({
     this.fullName,
     this.dob,
     this.gender,
@@ -20,9 +21,10 @@ class User {
     this.city,
     this.pinCode,
     this.state,
+    this.password,
   });
 
-  static User demoUser = User(
+  static UserModel demoUser = UserModel(
     fullName: 'Maria',
     dob: '25-12-1990',
     gender: 'Female',

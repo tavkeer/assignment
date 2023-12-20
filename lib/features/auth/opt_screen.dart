@@ -2,7 +2,12 @@ import 'package:tavkeer_assignment/exports.dart';
 import 'package:tavkeer_assignment/features/auth/components/enter_otp.dart';
 
 class OtpPage extends StatelessWidget {
-  const OtpPage({super.key, required this.email});
+  final UserModel user;
+  const OtpPage({
+    super.key,
+    required this.email,
+    required this.user,
+  });
 
   final TextEditingController email;
   @override
@@ -33,6 +38,7 @@ class OtpPage extends StatelessWidget {
                   title: 'E-mail Address',
                   hint: email.text.trim(),
                   textController: email,
+                  readOnly: true,
                 ),
                 const SizedBox(height: 5),
 
@@ -43,12 +49,17 @@ class OtpPage extends StatelessWidget {
                 const SizedBox(height: 5),
                 Obx(
                   () => CustomButton(
+                    controller: Get.find<SignUpController>().isLoading,
                     title: (!Get.find<OtpController>().showOtp.value)
                         ? 'Get OTP'
                         : 'Continue',
                     ontap: () {
-                      Get.find<OtpController>().toggShowOtp(true);
-                      Get.find<OtpController>().sendOtp(email.text);
+                      if (Get.find<OtpController>().verifiedOtp.value) {
+                        Get.find<SignUpController>().register(user);
+                      } else {
+                        Get.find<OtpController>().toggShowOtp(true);
+                        Get.find<OtpController>().sendOtp(email.text);
+                      }
                     },
                   ),
                 ),

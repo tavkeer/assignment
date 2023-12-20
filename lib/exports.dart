@@ -26,3 +26,7 @@ export 'package:tavkeer_assignment/features/auth/controllers/signup_controller.d
 export 'package:tavkeer_assignment/features/auth/components/signup_form.dart';
 export 'package:tavkeer_assignment/features/auth/controllers/opt_controller.dart';
 export 'package:tavkeer_assignment/features/auth/utils/enter_opt.dart';
+export 'package:email_otp/email_otp.dart';
+export 'package:tavkeer_assignment/features/auth/opt_screen.dart';
+export 'package:tavkeer_assignment/models/user.dart';
+export 'package:cloud_firestore/cloud_firestore.dart';

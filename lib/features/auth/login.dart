@@ -39,7 +39,11 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 15),
                 CustomButton(
                   title: 'Login',
-                  ontap: () {},
+                  controller: Get.find<LoginController>().isLoading,
+                  ontap: () => Get.find<LoginController>().login(
+                    email: email.text.trim(),
+                    password: password.text.trim(),
+                  ),
                 ),
 
                 //divider

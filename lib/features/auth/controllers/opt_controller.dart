@@ -1,4 +1,3 @@
-import 'package:email_otp/email_otp.dart';
 import 'package:tavkeer_assignment/exports.dart';
 
 class OtpController extends GetxController {
@@ -6,7 +5,11 @@ class OtpController extends GetxController {
 
   RxBool showOtp = RxBool(false);
 
+  RxBool verifiedOtp = RxBool(false);
+
+  //initialize the otp service
   EmailOTP myauth = EmailOTP();
+
   //set value for password
   void toggShowOtp(bool value) => showOtp.value = value;
 
@@ -16,6 +19,8 @@ class OtpController extends GetxController {
   //send otp
   Future<void> sendOtp(String email) async {
     debugPrint('Email in sendOtp: $email');
+    isLoading.value = true;
+
     try {
       myauth.setConfig(
           appEmail: "shahtavkeerfourth@gmail.com",
@@ -27,6 +32,7 @@ class OtpController extends GetxController {
     } catch (e) {
       debugPrint(e.toString());
     }
+    isLoading.value = false;
   }
 
   //verify opt
@@ -35,9 +41,19 @@ class OtpController extends GetxController {
 
     final bool reslt = await myauth.verifyOTP(otp: otp);
     if (reslt == true) {
-      Get.to(() => const Scaffold());
-      myauth.printError();
+      verifiedOtp.value = true;
     } else {
+      Get.snackbar(
+        'Error',
+        "OTP doesn't match",
+        colorText: Colors.black,
+        backgroundColor: Colors.red.shade400,
+        snackPosition: SnackPosition.BOTTOM,
+        margin: const EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 20,
+        ),
+      );
       debugPrint("not done");
     }
   }

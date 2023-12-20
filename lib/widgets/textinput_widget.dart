@@ -8,15 +8,21 @@ class TextInputWidget extends StatelessWidget {
   final TextInputType? keyboard;
   final bool? hidePass;
   final bool? required;
-  const TextInputWidget(
-      {super.key,
-      required this.title,
-      required this.hint,
-      required this.textController,
-      this.trailingWidget,
-      this.keyboard,
-      this.hidePass,
-      this.required});
+  final bool? readOnly;
+  final void Function()? ontap;
+
+  const TextInputWidget({
+    super.key,
+    required this.title,
+    required this.hint,
+    required this.textController,
+    this.trailingWidget,
+    this.keyboard,
+    this.hidePass,
+    this.required,
+    this.readOnly,
+    this.ontap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +55,10 @@ class TextInputWidget extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         TextFormField(
+          onTap: ontap,
           controller: textController,
           keyboardType: keyboard,
+          readOnly: readOnly ?? false,
           obscureText: hidePass ?? false,
           style: const TextStyle(
             color: Colors.black,
@@ -71,6 +79,12 @@ class TextInputWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(13),
               borderSide: const BorderSide(
                 color: Color(0x25121212),
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(13),
+              borderSide: const BorderSide(
+                color: Colors.red,
               ),
             ),
             hintStyle: const TextStyle(

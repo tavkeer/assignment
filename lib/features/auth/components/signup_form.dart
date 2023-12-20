@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:tavkeer_assignment/exports.dart';
+import 'package:tavkeer_assignment/features/auth/utils/date_dialog.dart';
 import 'package:tavkeer_assignment/features/auth/utils/show_password.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -38,7 +39,6 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'Full Name',
           hint: 'Enter Full Name',
-          keyboard: TextInputType.emailAddress,
           textController: fullName,
           required: true,
         ),
@@ -48,12 +48,28 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'Gender',
           hint: 'Enter Gender',
-          keyboard: TextInputType.emailAddress,
           textController: gender,
+          readOnly: true,
           required: true,
-          trailingWidget: Icon(
-            Icons.keyboard_arrow_down,
-            color: appThemeColor,
+          trailingWidget: PopupMenuButton<String>(
+            icon: Icon(Icons.keyboard_arrow_down, color: appThemeColor),
+            itemBuilder: (context) {
+              return <PopupMenuEntry<String>>[
+                for (String option in ['Male', 'Female', 'Other'])
+                  PopupMenuItem<String>(
+                    value: option,
+                    child: Text(
+                      option,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+              ];
+            },
+            onSelected: (String value) {
+              gender.text = value;
+            },
           ),
         ),
         const SizedBox(height: 15),
@@ -62,12 +78,20 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'D.O.B',
           hint: 'Enter D.O.B',
-          keyboard: TextInputType.emailAddress,
           textController: dob,
+          readOnly: true,
           trailingWidget: Icon(
             Icons.calendar_month,
             color: appThemeColor,
           ),
+          ontap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return DateDialog(controller: dob);
+              },
+            );
+          },
           required: true,
         ),
         const SizedBox(height: 15),
@@ -99,7 +123,7 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'Mobile Number',
           hint: 'Enter Mobile Numbe',
-          keyboard: TextInputType.emailAddress,
+          keyboard: TextInputType.number,
           textController: phone,
           required: true,
         ),
@@ -109,7 +133,7 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'Age',
           hint: 'Enter Age',
-          keyboard: TextInputType.emailAddress,
+          keyboard: TextInputType.number,
           textController: age,
           required: true,
         ),
@@ -119,7 +143,6 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'Address',
           hint: 'Enter Address',
-          keyboard: TextInputType.emailAddress,
           textController: address,
           required: true,
           trailingWidget: ImageIcon(
@@ -134,7 +157,6 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'City',
           hint: 'Enter City',
-          keyboard: TextInputType.emailAddress,
           textController: city,
           required: true,
         ),
@@ -144,7 +166,6 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'State',
           hint: 'Enter State',
-          keyboard: TextInputType.emailAddress,
           textController: state,
           required: true,
         ),
@@ -154,7 +175,6 @@ class SignUpForm extends StatelessWidget {
         TextInputWidget(
           title: 'Pincode',
           hint: 'Enter Pincode',
-          keyboard: TextInputType.emailAddress,
           textController: pinCode,
           required: true,
         ),
