@@ -6,6 +6,7 @@ class OtpController extends GetxController {
 
   RxBool showOtp = RxBool(false);
 
+  EmailOTP myauth = EmailOTP();
   //set value for password
   void toggShowOtp(bool value) => showOtp.value = value;
 
@@ -14,32 +15,15 @@ class OtpController extends GetxController {
 
   //send otp
   Future<void> sendOtp(String email) async {
-    print('Email in sendOtp: $email');
+    debugPrint('Email in sendOtp: $email');
     try {
-      EmailOTP myauth = EmailOTP();
       myauth.setConfig(
           appEmail: "shahtavkeerfourth@gmail.com",
-          appName: "Assignment",
+          appName: "Tavkeer Assignment",
           userEmail: email,
           otpLength: 4,
           otpType: OTPType.digitsOnly);
       await myauth.sendOTP();
-      // if (await myauth.sendOTP() == true) {
-      //   ScaffoldMessenger.of(context)
-      //       .showSnackBar(const SnackBar(
-      //     content: Text("OTP has been sent"),
-      //   ));
-      //   Navigator.push(
-      //       context,
-      //       MaterialPageRoute(
-      //           builder: (context) =>   OtpScreen(myauth: myauth,)));
-      // }
-      // else {
-      //   ScaffoldMessenger.of(context)
-      //       .showSnackBar(const SnackBar(
-      //     content: Text("Oops, OTP send failed"),
-      //   ));
-      // }
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -47,23 +31,14 @@ class OtpController extends GetxController {
 
   //verify opt
   Future<void> verifyOtp({required String otp}) async {
-    print('OTP in sendOtp: $otp');
-    EmailOTP myauth = EmailOTP();
+    debugPrint('OTP in sendOtp: $otp');
 
-    if (await myauth.verifyOTP(otp: otp) == true) {
+    final bool reslt = await myauth.verifyOTP(otp: otp);
+    if (reslt == true) {
       Get.to(() => const Scaffold());
       myauth.printError();
-      // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      //   content: Text("OTP is verified"),
-      // ));
-      // Navigator.push(context,
-      //     MaterialPageRoute(builder: (context) => const Home()));
     } else {
-      print("not done");
-
-      // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      //   content: Text("Invalid OTP"),
-      // ));
+      debugPrint("not done");
     }
   }
 }

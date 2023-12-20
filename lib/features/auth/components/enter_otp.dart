@@ -78,7 +78,7 @@ class EnterOtpForm extends StatelessWidget {
 
     void checkOtp() {
       final String otp =
-          '${one.text.trim}${two.text.trim}${three.text.trim}${four.text.trim}';
+          '${one.text.trim()}${two.text.trim()}${three.text.trim()}${four.text.trim()}';
       Get.find<OtpController>().verifyOtp(otp: otp.trim());
     }
 
