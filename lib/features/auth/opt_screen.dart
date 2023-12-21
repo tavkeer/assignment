@@ -1,5 +1,4 @@
 import 'package:tavkeer_assignment/exports.dart';
-import 'package:tavkeer_assignment/features/auth/components/enter_otp.dart';
 
 class OtpPage extends StatelessWidget {
   final UserModel user;
@@ -76,7 +75,7 @@ class OtpPage extends StatelessWidget {
                 ToggleLoginAndRegister(
                   titleText: "Already have an account? ",
                   actionText: 'Login',
-                  ontap: () => Get.off(() => const LoginPage()),
+                  ontap: () => Get.offAll(() => const LoginPage()),
                 ),
               ],
             ),

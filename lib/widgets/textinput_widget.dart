@@ -10,6 +10,8 @@ class TextInputWidget extends StatelessWidget {
   final bool? required;
   final bool? readOnly;
   final void Function()? ontap;
+  final double? gap;
+  final Widget? prefix;
 
   const TextInputWidget({
     super.key,
@@ -22,6 +24,8 @@ class TextInputWidget extends StatelessWidget {
     this.required,
     this.readOnly,
     this.ontap,
+    this.gap,
+    this.prefix,
   });
 
   @override
@@ -37,7 +41,7 @@ class TextInputWidget extends StatelessWidget {
                 title,
                 style: const TextStyle(
                   color: Color(0xFF121212),
-                  fontSize: 18,
+                  fontSize: 17,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -53,7 +57,7 @@ class TextInputWidget extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: gap ?? 8),
         TextFormField(
           onTap: ontap,
           controller: textController,
@@ -66,8 +70,14 @@ class TextInputWidget extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
           decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.only(left: 20, top: 15, bottom: 15),
+            fillColor: const Color(0xFFEFF7FD),
+            filled: true,
+            prefixIcon: prefix,
+            contentPadding: const EdgeInsets.only(
+              left: 20,
+              top: 10,
+              bottom: 10,
+            ),
             border: InputBorder.none,
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(13),
@@ -77,8 +87,8 @@ class TextInputWidget extends StatelessWidget {
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(13),
-              borderSide: const BorderSide(
-                color: Color(0x25121212),
+              borderSide: BorderSide(
+                color: appThemeColor.withOpacity(0.5),
               ),
             ),
             errorBorder: OutlineInputBorder(
@@ -89,7 +99,7 @@ class TextInputWidget extends StatelessWidget {
             ),
             hintStyle: const TextStyle(
               color: Color(0xFF8F8F8F),
-              fontSize: 12,
+              fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
             hintText: hint,

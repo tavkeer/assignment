@@ -8,10 +8,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  //status bar color reflected here
+  //status bar ans gesture bar color here
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.white,
+      systemNavigationBarColor: Colors.white,
       statusBarIconBrightness: Brightness.dark,
     ),
   );

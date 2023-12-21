@@ -115,6 +115,7 @@ class SignUpPage extends StatelessWidget {
                             phone: phone.text.trim(),
                             email: email.text.trim(),
                             password: password.text.trim(),
+                            pinCode: pinCode.text.trim(),
                           ),
                         ),
                       );

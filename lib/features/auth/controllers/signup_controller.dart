@@ -57,6 +57,7 @@ class SignUpController extends GetxController {
         "state": user.state,
         "phone": user.phone,
         "email": user.email,
+        "pincode": user.pinCode,
       });
     } on FirebaseAuthException catch (e) {
       Get.snackbar(
