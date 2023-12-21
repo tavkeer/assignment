@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
                 LoginForm(email: email, password: password),
 
                 //forgot and remember me section
-                const ForgotPassword(),
+                ForgotPassword(email: email),
 
                 //privacy policy section
                 const PrivacyPolicy(),

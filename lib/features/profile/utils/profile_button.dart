@@ -1,9 +1,7 @@
 import 'package:tavkeer_assignment/exports.dart';
 
 class ProfileButton extends StatelessWidget {
-  const ProfileButton({
-    super.key,
-  });
+  const ProfileButton({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -17,6 +17,7 @@ export 'package:tavkeer_assignment/features/home/home.dart';
 export 'package:tavkeer_assignment/features/auth/login.dart';
 export 'package:tavkeer_assignment/features/auth/signup.dart';
 export 'package:tavkeer_assignment/widgets/custom_button.dart';
+export 'package:tavkeer_assignment/widgets/logout_button.dart';
 export 'package:tavkeer_assignment/widgets/textinput_widget.dart';
 export 'package:tavkeer_assignment/features/auth/opt_screen.dart';
 export 'package:tavkeer_assignment/features/home/hot_events.dart';

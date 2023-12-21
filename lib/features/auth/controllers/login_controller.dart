@@ -77,4 +77,31 @@ class LoginController extends GetxController {
       );
     }
   }
+
+  Future<void> resetPassword(String email) async {
+    final RegExp emailRegExp =
+        RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
+    if (!emailRegExp.hasMatch(email)) {
+      return;
+    }
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      Get.snackbar(
+        'Error',
+        'Email has been sent to $email',
+        colorText: Colors.black,
+        snackPosition: SnackPosition.BOTTOM,
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      );
+    } on FirebaseException catch (e) {
+      Get.snackbar(
+        'Error',
+        e.message.toString(),
+        colorText: Colors.black,
+        backgroundColor: Colors.red.shade400,
+        snackPosition: SnackPosition.BOTTOM,
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      );
+    }
+  }
 }

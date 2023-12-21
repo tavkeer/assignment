@@ -29,8 +29,17 @@ class OtpController extends GetxController {
           otpLength: 4,
           otpType: OTPType.digitsOnly);
       await myauth.sendOTP();
+      Get.snackbar(
+        "Alert!",
+        "OTP has been sent to your registered Email-Address",
+      );
     } catch (e) {
       debugPrint(e.toString());
+      Get.snackbar(
+        "Error",
+        "Something wrong happened.",
+        backgroundColor: Colors.red.shade300,
+      );
     }
     isLoading.value = false;
   }

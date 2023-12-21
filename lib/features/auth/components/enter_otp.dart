@@ -41,7 +41,9 @@ class EnterOtp extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Get.find<OtpController>().sendOtp(email.text.trim());
+                        },
                         child: const Text(
                           "Resend OTP",
                           style: TextStyle(

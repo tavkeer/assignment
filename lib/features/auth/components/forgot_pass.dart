@@ -1,7 +1,11 @@
 import 'package:tavkeer_assignment/exports.dart';
 
 class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+  final TextEditingController email;
+  const ForgotPassword({
+    super.key,
+    required this.email,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,7 @@ class ForgotPassword extends StatelessWidget {
         const Spacer(),
         GestureDetector(
           onTap: () {
-            //forgot password email to be sent from here
+            Get.find<LoginController>().resetPassword(email.text.trim());
           },
           child: Text(
             'Forgot Password?',
