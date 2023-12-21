@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:tavkeer_assignment/exports.dart';
+import 'package:tavkeer_assignment/features/home/controllers/home_controller.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,6 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+    Get.put(HomeController());
 
     return Scaffold(
       key: scaffoldKey,

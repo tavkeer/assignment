@@ -77,12 +77,4 @@ class LoginController extends GetxController {
       );
     }
   }
-
-  @override
-  void onReady() {
-    if (FirebaseAuth.instance.currentUser!.uid.isNotEmpty) {
-      getUserData();
-    }
-    super.onReady();
-  }
 }
