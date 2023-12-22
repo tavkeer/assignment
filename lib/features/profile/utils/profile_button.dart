@@ -1,7 +1,8 @@
 import 'package:tavkeer_assignment/exports.dart';
 
 class ProfileButton extends StatelessWidget {
-  const ProfileButton({super.key});
+  final UserModel user;
+  const ProfileButton({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +12,7 @@ class ProfileButton extends StatelessWidget {
           onPressed: () {
             if (Get.find<ProfileController>().readOnly.value) {
             } else {
+              Navigator.pop(context);
               Get.find<ProfileController>().readOnly.value = true;
             }
           },

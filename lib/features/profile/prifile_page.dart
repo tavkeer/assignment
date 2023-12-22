@@ -58,7 +58,20 @@ class ProfilePage extends StatelessWidget {
 
             //sbutton
             const SizedBox(height: 10),
-            const ProfileButton(),
+            ProfileButton(
+              user: UserModel(
+                fullName: fullName.text.trim(),
+                dob: dob.text.trim(),
+                gender: gender.text.trim(),
+                age: age.text.trim(),
+                city: city.text.trim(),
+                address: address.text.trim(),
+                state: state.text.trim(),
+                phone: phone.text.trim(),
+                email: email.text.trim(),
+                pinCode: pinCode.text.trim(),
+              ),
+            ),
           ],
         ),
       ),
