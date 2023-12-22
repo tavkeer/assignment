@@ -1,4 +1,5 @@
 import 'package:tavkeer_assignment/exports.dart';
+import 'package:tavkeer_assignment/features/profile/prifile_page.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
@@ -15,33 +16,37 @@ class DrawerWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/profile.png'),
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          'Hi, ${Get.find<LoginController>().name.value}',
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
+              GestureDetector(
+                onTap: () => Get.to(() => const ProfilePage()),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/images/profile.png'),
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Hi, ${Get.find<LoginController>().name.value}',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                        Text(
-                          Get.find<LoginController>().phone.value,
-                          style: const TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
+                          Text(
+                            Get.find<LoginController>().phone.value,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Stack(
