@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:tavkeer_assignment/exports.dart';
 
 class LoginController extends GetxController {
@@ -65,7 +66,8 @@ class LoginController extends GetxController {
       name.value = userData.fullName!;
       phone.value = userData.phone!;
 
-      debugPrint("user :${userData.email.toString()}");
+      //save locally
+      saveLocal(data);
     } on FirebaseException catch (e) {
       Get.snackbar(
         'Error',
@@ -103,5 +105,19 @@ class LoginController extends GetxController {
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       );
     }
+  }
+
+  Future saveLocal(Map<String, dynamic> data) async {
+    final localUserDetails = Hive.box('userDetails');
+    localUserDetails.put('email', data['email']);
+    localUserDetails.put('address', data['address']);
+    localUserDetails.put('age', data['age']);
+    localUserDetails.put('city', data['city']);
+    localUserDetails.put('dob', data['dob']);
+    localUserDetails.put('state', data['state']);
+    localUserDetails.put('fullName', data['fullName']);
+    localUserDetails.put('gender', data['gender']);
+    localUserDetails.put('phone', data['phone']);
+    localUserDetails.put('pincode', data['pincode']);
   }
 }
