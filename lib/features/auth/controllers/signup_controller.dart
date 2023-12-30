@@ -1,6 +1,7 @@
 import 'package:tavkeer_assignment/exports.dart';
 
 class SignUpController extends GetxController {
+  RxBool gettinglocation = RxBool(true);
   RxBool isLoading = RxBool(false);
 
   RxBool passwordLoading = RxBool(false);

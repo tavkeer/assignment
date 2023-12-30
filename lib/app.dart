@@ -1,4 +1,3 @@
-import 'package:tavkeer_assignment/binding/bindings.dart';
 import 'package:tavkeer_assignment/exports.dart';
 
 class MyApp extends StatelessWidget {

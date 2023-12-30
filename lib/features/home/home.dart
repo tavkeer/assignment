@@ -1,7 +1,6 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:tavkeer_assignment/exports.dart';
-import 'package:tavkeer_assignment/features/home/controllers/home_controller.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
